@@ -18,6 +18,19 @@ while attempts < max_attempts:
             print(f"Мало! Осталось попыток: {remaining}")
         elif guess > secret_number:
             print(f"Много! Осталось попыток: {remaining}")
+
+        difference = abs(secret_number - guess)
+
+        if guess < secret_number:
+            if difference < 10:
+                print("Тепло! Нужно чуть больше.")
+            else:
+                print("Холодно! Намного больше.")
+        elif guess > secret_number:
+            if difference < 10:  # НОВАЯ СТРОКА
+                print("Тепло! Нужно чуть меньше.")  # НОВАЯ СТРОКА
+            else:
+                print("Холодно! Намного меньше.")
         else:
             print(f"Ура! Ты угадал число {secret_number} за {attempts} попыток!")
             break
