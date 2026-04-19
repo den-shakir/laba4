@@ -1,6 +1,5 @@
 import random
 
-# Программа загадывает число от 1 до 100
 secret_number = random.randint(1, 100)
 attempts = 0
 max_attempts = 5
@@ -13,24 +12,18 @@ while attempts < max_attempts:
         guess = int(input("Введите число: "))
         attempts += 1
         remaining = max_attempts - attempts
+        difference = abs(secret_number - guess)
         
         if guess < secret_number:
-            print(f"Мало! Осталось попыток: {remaining}")
-        elif guess > secret_number:
-            print(f"Много! Осталось попыток: {remaining}")
-
-        difference = abs(secret_number - guess)
-
-        if guess < secret_number:
             if difference < 10:
-                print("Тепло! Нужно чуть больше.")
+                print(f"Тепло! Нужно чуть больше. Осталось попыток: {remaining}")
             else:
-                print("Холодно! Намного больше.")
+                print(f"Холодно! Намного больше. Осталось попыток: {remaining}")
         elif guess > secret_number:
-            if difference < 10:  # НОВАЯ СТРОКА
-                print("Тепло! Нужно чуть меньше.")  # НОВАЯ СТРОКА
+            if difference < 10:
+                print(f"Тепло! Нужно чуть меньше. Осталось попыток: {remaining}")
             else:
-                print("Холодно! Намного меньше.")
+                print(f"Холодно! Намного меньше. Осталось попыток: {remaining}")
         else:
             print(f"Ура! Ты угадал число {secret_number} за {attempts} попыток!")
             break
